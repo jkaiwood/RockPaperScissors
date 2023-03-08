@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+</head>
+
+<body>
+    <script>
+        let playerChoice = prompt("What is your choice: Rock, Paper or Scissors?");
+        const playerSelection = playerChoice.toLowerCase();
+
+
+        let getComputerChoice = choices => {
+            choices = ['rock', 'paper', 'scissors'];
+            let random = Math.floor(Math.random() * choices.length);
+            return choices[random];
+        }
+
+        const computerSelection = getComputerChoice();
+
+        let decision = "";
+
+        let playRound = (computerSelection, playerSelection) => {
+            switch (computerSelection, playerSelection) {
+                case 'rock', 'scissors':  
+                    decision = "You lose rock beats scissors!";
+                    return decision;
+                    break;
+                case 'scissors', 'paper':
+                    decision = "You lose scissors beats paper!";
+                    return decision;
+                    break;
+                case 'paper', 'rock':
+                    decision = "You lose paper beats rock!";
+                    return decision;
+                    break;
+                case 'scissors', 'rock':
+                    decision = "You win rock beats scissors!";
+                    return decision;
+                    break;
+                case 'paper', 'scissors':
+                    decision = "You win scissors beats paper!";
+                    return decision;
+                    break;
+                case 'rock', 'paper':
+                    decision = "You win paper beats rock!";
+                    return decision;
+                    break;
+                default:
+                    decision = "It's a draw.";
+            }
+        }
+
+        let game = (computerSelection, playerSelection) => {
+            let computerScore = 0;
+            let playerScore = 0;
+
+
+            for (let i = 0; i < 5; i++) {
+                playRound(computerSelection, playerSelection);
+                if (decision.includes("win")) {
+                    playerScore++;
+                    computerScore--;
+                } else if (decision.includes("lose")) {
+                    playerScore--;
+                    computerScore++;
+                }
+                console.log("Your score :" + playerScore + "\n" + "Computer score :" + computerScore);
+            }
+            if (playerScore > computerScore) {
+                console.log("You are the winner!");
+            } else if (playerScore < computerScore) {
+                console.log("You lose :(");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

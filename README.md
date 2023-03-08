@@ -1,1 +1,2 @@
 # RockPaperScissors
+This program is a rock, paper, scissors game. It uses a prompt to get you, the player's selection and a random number generator to make a selection for the computer. The output will be shown in the console for the moment. As I advance in my skills I will add a interface in the browser for this game.
