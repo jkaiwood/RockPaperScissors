@@ -14,14 +14,16 @@
         let playerChoice = prompt("What is your choice: Rock, Paper or Scissors?");
         const playerSelection = playerChoice.toLowerCase();
 
-        //This function takes a random value from the choice array to pass into computerSelection constant
-        function getComputerChoice (choices) {
-            choices = ['rock', 'paper', 'scissors'];
+        const choices = ['rock', 'paper', 'scissors'];
+        //This function takes a random value from the choices array to pass into computerSelection constant
+        
+        function randomSelection(choices) {
             let random = Math.floor(Math.random() * choices.length);
-            return choices[random];
+            const choicesPick = choices[random];
+            return choicesPick;
         }
 
-        const computerSelection = getComputerChoice(choices);
+        let computerSelection = randomSelection(choices);
 
         let decision = "";
 
@@ -77,9 +79,9 @@
             }
             //Final output based on the values in playerScore and computerScore
             if (playerScore > computerScore) {
-                console.log("You are the winner!" + "\n" + "Final Score: " + "Player - " + playerScore + " Computer - " + computerScore);
+                console.log("You are the winner!" + "\n" + "Final Score: " + "Player: " + playerScore + " Computer: " + computerScore);
             } else if (playerScore < computerScore) {
-                console.log("You lose :(" + "\n" + "Final Score: Computer - " + computerScore + " Player - " + playerScore);
+                console.log("You lose :(" + "\n" + "Final Score: Computer: " + computerScore + " Player: " + playerScore);
             }
         }
 
