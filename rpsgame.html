@@ -10,21 +10,24 @@
 
 <body>
     <script>
+        //Initial prompt for user to get their selection, their choise is stored in playerSelection
         let playerChoice = prompt("What is your choice: Rock, Paper or Scissors?");
         const playerSelection = playerChoice.toLowerCase();
 
-
+        //This function takes a random value from the choice array to pass into computerSelection constant
         function getComputerChoice (choices) {
             choices = ['rock', 'paper', 'scissors'];
             let random = Math.floor(Math.random() * choices.length);
             return choices[random];
         }
 
-        const computerSelection = getComputerChoice();
+        const computerSelection = getComputerChoice(choices);
 
         let decision = "";
 
-        let playRound = (computerSelection, playerSelection) => {
+        //This is a callback function plays one round of rock paper scissors and  
+        //uses a switch statement to determine the decision that is output to the console
+        function playRound(computerSelection, playerSelection) {
             switch (computerSelection, playerSelection) {
                 case 'rock', 'scissors':  
                     decision = "You lose rock beats scissors!";
@@ -55,10 +58,11 @@
             }
         }
 
+        //This function utilizes the playRound function to play the game in a loop 5 times
+        //the variables used will keep track of score based on the output to the console
         function game(computerSelection, playerSelection) {
             let computerScore = 0;
             let playerScore = 0;
-
 
             for (let i = 0; i < 5; i++) {
                 playRound(computerSelection, playerSelection);
@@ -71,6 +75,7 @@
                 }
                 console.log("Your score :" + playerScore + "\n" + "Computer score :" + computerScore);
             }
+            //Final output based on the values in playerScore and computerScore
             if (playerScore > computerScore) {
                 console.log("You are the winner!" + "\n" + "Final Score: " + "Player - " + playerScore + " Computer - " + computerScore);
             } else if (playerScore < computerScore) {
