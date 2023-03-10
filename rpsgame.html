@@ -14,7 +14,7 @@
         const playerSelection = playerChoice.toLowerCase();
 
 
-        let getComputerChoice = choices => {
+        function getComputerChoice (choices) {
             choices = ['rock', 'paper', 'scissors'];
             let random = Math.floor(Math.random() * choices.length);
             return choices[random];
@@ -55,7 +55,7 @@
             }
         }
 
-        let game = (computerSelection, playerSelection) => {
+        function game(computerSelection, playerSelection) {
             let computerScore = 0;
             let playerScore = 0;
 
@@ -72,9 +72,9 @@
                 console.log("Your score :" + playerScore + "\n" + "Computer score :" + computerScore);
             }
             if (playerScore > computerScore) {
-                console.log("You are the winner!");
+                console.log("You are the winner!" + "\n" + "Final Score: " + "Player - " + playerScore + " Computer - " + computerScore);
             } else if (playerScore < computerScore) {
-                console.log("You lose :(");
+                console.log("You lose :(" + "\n" + "Final Score: Computer - " + computerScore + " Player - " + playerScore);
             }
         }
 
