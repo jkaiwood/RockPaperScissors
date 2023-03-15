@@ -18,9 +18,7 @@
         //This function takes a random value from the choices array to pass into computerSelection constant
         
         function randomSelection(choices) {
-            let random = Math.floor(Math.random() * choices.length);
-            const choicesPick = choices[random];
-            return choicesPick;
+            return Math.floor(Math.random() * choices.length);
         }
 
         let computerSelection = randomSelection(choices);
